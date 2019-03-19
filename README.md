@@ -49,7 +49,9 @@ func init() {
     if err != nil {
         log.Fatalf("new kv client error: %#v", err)
     }
-    kv.Start(prefix)
+    if err = kv.Start(prefix); err != nil {
+        log.Fatalf(err)
+    }
 }
 
 func main() {
