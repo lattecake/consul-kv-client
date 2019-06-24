@@ -1,12 +1,12 @@
 package consul_kv_client
 
 import (
-	"log"
-	"sync"
 	"errors"
 	"fmt"
-	"strings"
 	"github.com/lattecake/consul-kv-client/api"
+	"log"
+	"strings"
+	"sync"
 )
 
 type KvClient interface {
@@ -119,7 +119,6 @@ func (c *kvClient) Start(key string) error {
 		}(val.Key)
 		if err = c.get(val.Key); err != nil {
 			log.Fatalf("watch key %s err %s", key, err.Error())
-			continue
 		}
 	}
 
@@ -131,6 +130,10 @@ func (c *kvClient) get(key string) error {
 	pair, _, err := c.kv.Get(key, nil)
 	if err != nil {
 		return errors.New(fmt.Sprintf("kv get %s ", err.Error()))
+	}
+
+	if pair == nil {
+		return errors.New(fmt.Sprintf("%s value is not found", key))
 	}
 
 	c.loadData(key, pair.Value)
