@@ -1,15 +1,15 @@
 package rootcerts
 
 import (
-	"runtime"
-	"sync"
-	"strings"
-	"os"
-	"path/filepath"
 	"bytes"
-	"strconv"
-	"os/exec"
 	"errors"
+	"os"
+	"os/exec"
+	"path/filepath"
+	"runtime"
+	"strconv"
+	"strings"
+	"sync"
 )
 
 var DisableCache bool

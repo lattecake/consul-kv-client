@@ -2,9 +2,9 @@ package api
 
 import (
 	"net"
-	"time"
-	"runtime"
 	"net/http"
+	"runtime"
+	"time"
 )
 
 func DefaultPooledTransport() *http.Transport {

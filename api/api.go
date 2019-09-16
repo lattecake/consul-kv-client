@@ -1,21 +1,21 @@
 package api
 
 import (
-	"time"
-	"net/http"
-	"os"
-	"strconv"
-	"log"
-	"strings"
-	"net"
-	"fmt"
+	"bytes"
 	"context"
 	"crypto/tls"
-	"github.com/lattecake/consul-kv-client/api/rootcerts"
 	"encoding/json"
-	"net/url"
+	"fmt"
+	"github.com/lattecake/consul-kv-client/api/rootcerts"
 	"io"
-	"bytes"
+	"log"
+	"net"
+	"net/http"
+	"net/url"
+	"os"
+	"strconv"
+	"strings"
+	"time"
 )
 
 const (

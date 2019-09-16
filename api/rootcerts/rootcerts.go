@@ -3,12 +3,12 @@ package rootcerts
 import (
 	"crypto/tls"
 	"crypto/x509"
-	"io/ioutil"
 	"fmt"
+	"io/ioutil"
 	"os"
-	"path/filepath"
-	"path"
 	"os/exec"
+	"path"
+	"path/filepath"
 )
 
 // Config determines where LoadCACerts will load certificates from. When both
@@ -142,4 +142,3 @@ func certKeychains() []string {
 	}
 	return keychains
 }
-
