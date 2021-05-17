@@ -30,18 +30,10 @@ var (
 )
 
 func init() {
-    var consul_url = "http://127.0.0.1:8500"
-    consulKey := os.Getenv("POD_CONSUL_KEY")
-    if consulKey == "" {
-        consulKey = "daea5ec6-ebde-3a8e-33f2-d223c2fa0bb9"
-    } else {
-        consul_url = "http://consul:8500"
-    }
-
     config := &api.Config{
-        Address:  consul_url,
+        Address:  os.Getenv("CONSUL_HTTP_ADDR"),
         Scheme:   "http",
-        Token:    consulKey,
+        Token:    os.Getenv("CONSUL_HTTP_TOKEN"),
         WaitTime: time.Second * 30,
     }
 
